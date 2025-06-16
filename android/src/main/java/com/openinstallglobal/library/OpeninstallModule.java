@@ -68,69 +68,32 @@ public class OpeninstallModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void config(ReadableMap readableMap) {
-//
-//        if (hasTrue(readableMap, "adEnabled")) {
-//            builder.adEnabled(true);
-//        }
-//        if (readableMap.hasKey("oaid")) {
-//            builder.oaid(readableMap.getString("oaid"));
-//        }
-//        if (readableMap.hasKey("gaid")) {
-//            builder.gaid(readableMap.getString("gaid"));
-//        }
-//        if (hasTrue(readableMap, "imeiDisabled")) {
-//            builder.imeiDisabled();
-//        }
-//        if (readableMap.hasKey("imei")) {
-//            builder.imei(readableMap.getString("imei"));
-//        }
-//        if (hasTrue(readableMap, "macDisabled")) {
-//            builder.macDisabled();
-//        }
-//        if (readableMap.hasKey("macAddress")) {
-//            builder.macAddress(readableMap.getString("macAddress"));
-//        }
-//        if (readableMap.hasKey("androidId")) {
-//            builder.androidId(readableMap.getString("androidId"));
-//        }
-//        if (readableMap.hasKey("serialNumber")) {
-//            builder.serialNumber(readableMap.getString("serialNumber"));
-//        }
-//        if (hasTrue(readableMap, "simulatorDisabled")) {
-//            builder.simulatorDisabled();
-//        }
-//        if (hasTrue(readableMap, "storageDisabled")) {
-//            builder.storageDisabled();
-//        }
-
-    }
-
-    @ReactMethod
     public void init(ReadableMap readableMap) {
-        // config
-        if (hasTrue(readableMap, "disableFetchAndroidId")) {
-            OpenInstall.getInstance().disableFetchAndroidId();
-        }
-        if (readableMap.hasKey("androidId")) {
-            OpenInstall.getInstance().setAndroidId(readableMap.getString("androidId"));
-        }
-        if (hasTrue(readableMap, "disableFetchClipData")) {
-            OpenInstall.getInstance().disableFetchClipData();
-        }
-        if (readableMap.hasKey("clipData")) {
-            String clipDataStr = readableMap.getString("clipData");
-            ClipData clipData = ClipData.newPlainText("text", clipDataStr);
-            OpenInstall.getInstance().setClipData(clipData);
-        }
-        if (hasTrue(readableMap, "disableCheckSimulator")) {
-            OpenInstall.getInstance().disableCheckSimulator();
-        }
-        if (readableMap.hasKey("isSimulator")) {
-            OpenInstall.getInstance().setSimulator(readableMap.getBoolean("isSimulator"));
-        }
-        if (readableMap.hasKey("bizID")) {
-            OpenInstall.getInstance().setBizID(readableMap.getString("bizID"));
+        if(readableMap != null){
+            // config
+            if (hasTrue(readableMap, "disableFetchAndroidId")) {
+                OpenInstall.getInstance().disableFetchAndroidId();
+            }
+            if (readableMap.hasKey("androidId")) {
+                OpenInstall.getInstance().setAndroidId(readableMap.getString("androidId"));
+            }
+            if (hasTrue(readableMap, "disableFetchClipData")) {
+                OpenInstall.getInstance().disableFetchClipData();
+            }
+            if (readableMap.hasKey("clipData")) {
+                String clipDataStr = readableMap.getString("clipData");
+                ClipData clipData = ClipData.newPlainText("text", clipDataStr);
+                OpenInstall.getInstance().setClipData(clipData);
+            }
+            if (hasTrue(readableMap, "disableCheckSimulator")) {
+                OpenInstall.getInstance().disableCheckSimulator();
+            }
+            if (readableMap.hasKey("isSimulator")) {
+                OpenInstall.getInstance().setSimulator(readableMap.getBoolean("isSimulator"));
+            }
+            if (readableMap.hasKey("bizID")) {
+                OpenInstall.getInstance().setBizID(readableMap.getString("bizID"));
+            }
         }
 
         if (context.hasCurrentActivity()) {
@@ -234,15 +197,6 @@ public class OpeninstallModule extends ReactContextBaseJavaModule {
     public void reportRegister() {
         OpenInstall.getInstance().register();
     }
-
-//    @ReactMethod
-//    public void reportEffectPoint(String pointId, Integer pointValue) {
-//        if (!TextUtils.isEmpty(pointId) && pointValue >= 0) {
-//            OpenInstall.reportEffectPoint(pointId, pointValue);
-//        }else {
-//            Log.w(TAG, "reportEffectPoint 调用失败：pointId 不能为空，pointValue 必须大于0");
-//        }
-//    }
 
     @ReactMethod
     public void reportEffectPoint(String pointId, Integer pointValue, ReadableMap readableMap) {
