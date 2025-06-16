@@ -8,17 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:OpenInstall/openinstall-react-native.git"
+    "url": "git@github.com:OpenInstall/openinstall-react-native-global.git"
   },
   "bugs": {
-    "url": "https://github.com/OpenInstall/openinstall-react-native/issues"
+    "url": "https://github.com/OpenInstall/openinstall-react-native-global/issues"
   },
-  "homepage": "https://github.com/OpenInstall/openinstall-react-native#readme",
+  "homepage": "https://github.com/OpenInstall/openinstall-react-native-global#readme",
   "keywords": [
     "渠道统计",
     "免填邀请码",
     "一键拉起",
-    "广告效果监测",
     "渠道归因"
   ],
   "author": "openinstall",

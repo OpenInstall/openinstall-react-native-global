@@ -22,7 +22,7 @@
 
 @interface RCTOpenInstall : NSObject<RCTBridgeModule,OpenInstallDelegate>
 
-+ (id<OpenInstallDelegate> _Nonnull)allocWithZone:(NSZone *_Nullable)zone;
++ (id)shareInstance;
 
 + (void)handLinkURL:(NSURL *)url;
 

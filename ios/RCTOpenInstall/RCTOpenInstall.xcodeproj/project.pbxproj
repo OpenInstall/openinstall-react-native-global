@@ -11,7 +11,7 @@
 		1E2FD8BA21ABE34400BFF004 /* RCTOpenInstall.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E2FD8B721ABE34400BFF004 /* RCTOpenInstall.h */; };
 		1E4C6B8421AFD5EB000DBB2E /* libOpenInstallSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4C6B8321AFD5EB000DBB2E /* libOpenInstallSDK.a */; };
 		1E4C6C0E21B003AF000DBB2E /* OpenInstallSDK.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E4C6B8121AFD5EA000DBB2E /* OpenInstallSDK.h */; };
-		1E4C6C0F21B00529000DBB2E /* OpeninstallData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E4C6B8221AFD5EB000DBB2E /* OpeninstallData.h */; };
+		1E4C6C0F21B00529000DBB2E /* OpenInstallData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1E4C6B8221AFD5EB000DBB2E /* OpenInstallData.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -21,7 +21,7 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
-				1E4C6C0F21B00529000DBB2E /* OpeninstallData.h in CopyFiles */,
+				1E4C6C0F21B00529000DBB2E /* OpenInstallData.h in CopyFiles */,
 				1E4C6C0E21B003AF000DBB2E /* OpenInstallSDK.h in CopyFiles */,
 				1E2FD8BA21ABE34400BFF004 /* RCTOpenInstall.h in CopyFiles */,
 			);
@@ -34,7 +34,7 @@
 		1E2FD8B721ABE34400BFF004 /* RCTOpenInstall.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCTOpenInstall.h; sourceTree = "<group>"; };
 		1E2FD8B821ABE34400BFF004 /* RCTOpenInstall.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RCTOpenInstall.m; sourceTree = "<group>"; };
 		1E4C6B8121AFD5EA000DBB2E /* OpenInstallSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInstallSDK.h; sourceTree = "<group>"; };
-		1E4C6B8221AFD5EB000DBB2E /* OpeninstallData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpeninstallData.h; sourceTree = "<group>"; };
+		1E4C6B8221AFD5EB000DBB2E /* OpenInstallData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenInstallData.h; sourceTree = "<group>"; };
 		1E4C6B8321AFD5EB000DBB2E /* libOpenInstallSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOpenInstallSDK.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				1E4C6B8321AFD5EB000DBB2E /* libOpenInstallSDK.a */,
-				1E4C6B8221AFD5EB000DBB2E /* OpeninstallData.h */,
+				1E4C6B8221AFD5EB000DBB2E /* OpenInstallData.h */,
 				1E4C6B8121AFD5EA000DBB2E /* OpenInstallSDK.h */,
 				1E2FD8B721ABE34400BFF004 /* RCTOpenInstall.h */,
 				1E2FD8B821ABE34400BFF004 /* RCTOpenInstall.m */,

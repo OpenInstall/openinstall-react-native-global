@@ -49,7 +49,7 @@ function codeAppDelegate(path){
 		var hasCoded = rf.match(/OpenInstallSDK initWithDelegate/);
 		if(hasCoded != null){
 			rf = rf.replace("[OpenInstallSDK initWithDelegate:[RCTOpenInstall allocWithZone:nil]];","\n");
-			console.log(path + "\n插件版本1.3.0开始，初始化方法将由用户主动调用的方式来进行，请参考最新文档\n");
+			//console.log(path + "\n插件版本1.3.0开始，初始化方法将由用户主动调用的方式来进行，请参考最新文档\n");
 			//rf = rf.replace(matchFinishLaunching[0], matchFinishLaunching[0] + "\n\t" 
 			//+ "[OpenInstallSDK initWithDelegate:[RCTOpenInstall allocWithZone:nil]];");
 		}
@@ -65,7 +65,7 @@ function codeAppDelegate(path){
 		var hasCodedTrash = rf.match(/OpenInstallSDK handLinkURL/);
 		if(hasCodedTrash != null){
 			rf = rf.replace("[OpenInstallSDK handLinkURL:url];","\n");
-			console.log(path + "\n插件版本1.3.0开始，新方法[RCTOpenInstall handLinkURL:]将替代原先的[OpenInstallSDK handLinkURL:]方法\n");
+			//console.log(path + "\n插件版本1.3.0开始，新方法[RCTOpenInstall handLinkURL:]将替代原先的[OpenInstallSDK handLinkURL:]方法\n");
 		}
 		var hasCoded = rf.match(/RCTOpenInstall handLinkURL/);
 		if(hasCoded == null){
@@ -85,7 +85,7 @@ function codeAppDelegate(path){
 		var hasCodedTrash = rf.match(/OpenInstallSDK handLinkURL/);
 		if(hasCodedTrash != null){
 			rf = rf.replace("[OpenInstallSDK handLinkURL:url];","\n");
-			console.log(path + "\n插件版本1.3.0开始，新方法[RCTOpenInstall handLinkURL:]将替代原先的[OpenInstallSDK handLinkURL:]方法\n");
+			//console.log(path + "\n插件版本1.3.0开始，新方法[RCTOpenInstall handLinkURL:]将替代原先的[OpenInstallSDK handLinkURL:]方法\n");
 		}
 		var hasCoded = rf.match(/openURL2\n.*RCTOpenInstall handLinkURL/);
 		if(hasCoded == null){
@@ -104,7 +104,7 @@ function codeAppDelegate(path){
 		var hasCodedTrash = rf.match(/OpenInstallSDK continueUserActivity/);
 		if(hasCodedTrash != null){
 			rf = rf.replace("[OpenInstallSDK continueUserActivity:userActivity];","\n");
-			console.log(path +"\n插件版本1.3.0开始，新方法[RCTOpenInstall continueUserActivity:]将替代原先的[OpenInstallSDK continueUserActivity:]方法\n");
+			//console.log(path +"\n插件版本1.3.0开始，新方法[RCTOpenInstall continueUserActivity:]将替代原先的[OpenInstallSDK continueUserActivity:]方法\n");
 		}
 		var hasCoded = rf.match(/RCTOpenInstall continueUserActivity/);
 		if(hasCoded == null){

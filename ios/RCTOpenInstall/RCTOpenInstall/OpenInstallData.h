@@ -1,48 +1,45 @@
-//
-//  OpeninstallData.h
-//  OpenInstallSDK
-//
-//  Created by cooper on 2018/4/17.
-//  Copyright © 2018年 cooper. All rights reserved.
-//
 
 #import <Foundation/Foundation.h>
 
-//added in v2.7.0 用于分享统计接口中的分享平台（sharePlatform）
 typedef NSString *OP_SharePlatform NS_STRING_ENUM;
 
 /**
- * 微信好友
+ * 微信好友WechatSession
  */
 extern OP_SharePlatform const OP_SharePlatform_WechatSession;
 /**
- * 微信朋友圈
+ * 微信朋友圈WechatTimeline
  */
 extern OP_SharePlatform const OP_SharePlatform_WechatTimeline;
 /**
- * 微信收藏
+ * 微信收藏WechatFavorite
  */
 extern OP_SharePlatform const OP_SharePlatform_WechatFavorite;
+/**
+ * QQ Session
+ */
+extern OP_SharePlatform const OP_SharePlatform_QQ;
+/**
+ * QQ Zone
+ */
+extern OP_SharePlatform const OP_SharePlatform_Qzone;
+/**
+ * 新浪微博Sina
+ */
+extern OP_SharePlatform const OP_SharePlatform_Sina;
+/**
+ * 腾讯微博TencentWb
+ */
+extern OP_SharePlatform const OP_SharePlatform_TencentWb;
+/**
+    Share platform in the share statistics interface.
+ */
+typedef NSString *OP_SharePlatform NS_STRING_ENUM;
+
 /**
  * 企业微信，国际版WeCom，原名WechatWork
  */
 extern OP_SharePlatform const OP_SharePlatform_WeCom;
-/**
- * QQ好友
- */
-extern OP_SharePlatform const OP_SharePlatform_QQ;
-/**
- * QQ空间
- */
-extern OP_SharePlatform const OP_SharePlatform_Qzone;
-/**
- * 新浪微博
- */
-extern OP_SharePlatform const OP_SharePlatform_Sina;
-/**
- * 腾讯微博
- */
-extern OP_SharePlatform const OP_SharePlatform_TencentWb;
 /**
  * 腾讯Tim
  */
@@ -80,19 +77,19 @@ extern OP_SharePlatform const OP_SharePlatform_WatermelonVideo;
  */
 extern OP_SharePlatform const OP_SharePlatform_BuzzVideo;
 /**
- * 人人网
+ * 人人网Renren
  */
 extern OP_SharePlatform const OP_SharePlatform_Renren;
 /**
- * 豆瓣
+ * 豆瓣Douban
  */
 extern OP_SharePlatform const OP_SharePlatform_Douban;
 /**
- * 邮箱
+ * 邮箱Email
  */
 extern OP_SharePlatform const OP_SharePlatform_Email;
 /**
- * 短信
+ * 短信Sms
  */
 extern OP_SharePlatform const OP_SharePlatform_Sms;
 /**
@@ -129,27 +126,27 @@ extern OP_SharePlatform const OP_SharePlatform_Youtube;
 extern OP_SharePlatform const OP_SharePlatform_SnapChat;
 
 /**
- * 易信好友
+ * 易信好友YXSession
  */
 extern OP_SharePlatform const OP_SharePlatform_YXSession;
 /**
- * 易信朋友圈
+ * 易信朋友圈YXTimeline
  */
 extern OP_SharePlatform const OP_SharePlatform_YXTimeline;
 /**
- * 易信收藏夹
+ * 易信收藏夹YXFavorite
  */
 extern OP_SharePlatform const OP_SharePlatform_YXFavorite;
 /**
- * 明道
+ * 明道MingDao
  */
 extern OP_SharePlatform const OP_SharePlatform_MingDao;
 /**
- * 来往好友
+ * 来往好友LWSession
  */
 extern OP_SharePlatform const OP_SharePlatform_LWSession;
 /**
- * 来往朋友圈
+ * 来往朋友圈LWTimeline
  */
 extern OP_SharePlatform const OP_SharePlatform_LWTimeline;
 /**
@@ -157,7 +154,7 @@ extern OP_SharePlatform const OP_SharePlatform_LWTimeline;
  */
 extern OP_SharePlatform const OP_SharePlatform_Line;
 /**
- * 领英
+ * 领英Linkedin
  */
 extern OP_SharePlatform const OP_SharePlatform_Linkedin;
 /**
@@ -185,15 +182,15 @@ extern OP_SharePlatform const OP_SharePlatform_KakaoStory;
  */
 extern OP_SharePlatform const OP_SharePlatform_Flickr;
 /**
- * 有道云笔记
+ * 有道云笔记YouDaoNote
  */
 extern OP_SharePlatform const OP_SharePlatform_YouDaoNote;
 /**
- * 印象笔记
+ * 印象笔记YinxiangNote
  */
 extern OP_SharePlatform const OP_SharePlatform_YinxiangNote;
 /**
- * 印象笔记国际版
+ * 印象笔记国际版EverNote
  */
 extern OP_SharePlatform const OP_SharePlatform_EverNote;
 /**
@@ -229,28 +226,23 @@ extern OP_SharePlatform const OP_SharePlatform_AppleAccount;
  */
 extern OP_SharePlatform const OP_SharePlatform_Copy;
 /**
- *  其它平台
+ *  其它平台Other
  */
 extern OP_SharePlatform const OP_SharePlatform_Other;
 
 
-//added in v2.7.0 用于安装参数返回时的超时判断
 typedef NS_ENUM(NSUInteger,OP_Codes) {
-    OPCode_normal = 0,//初始化结束，并返回参数，自然安装下参数为空
-    OPCode_timeout = 1,//获取参数超时，可在合适时机再去获取（可设置全局标识）
+    OPCode_normal = 0,//The initialization is complete, and the parameters are returned. The parameters are empty in natural installation.
+    OPCode_timeout = 1,//Get parameter timeout, can be at the appropriate time to get again (can set the global identity).
 };
 
-extern NSString *const OP_Idfa_Id;//用于第三方广告平台统计
-extern NSString *const OP_ASA_Token;//用于苹果ASA搜索广告
-extern NSString *const OP_ASA_isDev;//added in v2.5.6 用于ASA debug测试，正式环境下“不要”设置为YES
-
-@interface OpeninstallData : NSObject<NSCopying>
+@interface OpenInstallData : NSObject<NSCopying>
 
 - (instancetype)initWithData:(NSDictionary *)data
                  channelCode:(NSString *)channelCode;
 
-@property (nonatomic,strong) NSDictionary *data;//动态参数
-@property (nonatomic,copy) NSString *channelCode;//渠道编号
-@property (nonatomic,assign) OP_Codes opCode;//返回码，用于安装参数返回时的超时判断 (added in v2.7.0)
+@property (nonatomic,strong) NSDictionary *data;//Dynamic parameter dictionary
+@property (nonatomic,copy) NSString *channelCode;//Channel number
+@property (nonatomic,assign) OP_Codes opCode;//Return code, used to determine the timeout when the installation parameter is returned。
 
 @end
