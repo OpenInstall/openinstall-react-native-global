@@ -3,7 +3,7 @@
 - 在React Native < 0.60版本下， `react-native link` 之后，打开 iOS 工程  
 - 在React Native >= 0.60版本下，通过pod安装插件后，打开iOS工程  
 
-也可不执行 `react-native link` 或cocoapod安装，通过手动拖拽openinstall-react-native插件 `RCTOpenInstall.xcodeproj` 到xcode工程中，这部分可参考[官方文档](https://reactnative.cn/docs/linking-libraries-ios/)或[facebook英文文档](https://facebook.github.io/react-native/docs/linking-libraries-ios)
+也可不执行 `react-native link` 或cocoapod安装，通过手动拖拽openinstall-react-native-global插件 `RCTOpenInstall.xcodeproj` 到xcode工程中，这部分可参考[官方文档](https://reactnative.cn/docs/linking-libraries-ios/)或[facebook英文文档](https://facebook.github.io/react-native/docs/linking-libraries-ios)
 
 #### 1 相关配置
 
@@ -24,7 +24,7 @@
 
 ##### （3）scheme配置
 - `scheme` 的值请在openinstall控制台获取（openinstall应用控制台->iOS集成->iOS应用配置）
-在 `Info.plist` 文件中，在 `CFBundleURLTypes` 数组中添加应用对应的 `scheme`，或者在工程“TARGETS-Info-URL Types”里快速添加，图文配置请看[iOS集成指南](https://www.openinstall.io/doc/ios_sdk.html)  
+在 `Info.plist` 文件中，在 `CFBundleURLTypes` 数组中添加应用对应的 `scheme`，或者在工程“TARGETS-Info-URL Types”里快速添加，图文配置请看[iOS集成指南](https://www.openinstallglobal.com/doc/zh/ios_sdk.html)  
 （scheme的值详细获取位置：openinstall应用控制台->iOS集成->iOS应用配置）
 
 ``` xml
@@ -47,7 +47,7 @@
 
 - 在 iOS 工程中如果找不到头文件可能要在 TARGETS-> BUILD SETTINGS -> Search Paths -> Header Search Paths 添加如下如路径：
 ````
-$(SRCROOT)/../node_modules/openinstall-react-native/ios/RCTOpenInstall
+$(SRCROOT)/../node_modules/openinstall-react-native-global/ios/RCTOpenInstall
 ````
 
 #### 2 相关代码
@@ -56,7 +56,7 @@ $(SRCROOT)/../node_modules/openinstall-react-native/ios/RCTOpenInstall
 ```
 #import <RCTOpenInstall/RCTOpenInstall.h>
 //通过cocoapod安装插件头文件路径不一样，如下
-#import <openinstall-react-native/RCTOpenInstall.h>
+#import <openinstall-react-native-global/RCTOpenInstall.h>
 ```
 
 （2）初始化sdk的代码  
