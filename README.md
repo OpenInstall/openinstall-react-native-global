@@ -1,5 +1,5 @@
 # Openinstall global React Native Plugin
-**开发中...**  
+
 openinstall-react-native-global 是openinstall官方开发的 React Native 插件，使用该插件可以方便快速地集成openinstall相关功能。
 
 ## 一、安装插件
@@ -31,7 +31,7 @@ react-native link
 ```
 
 ## 二、自动集成方式
-> **注意：** 如自动集成方式失败，无需惊慌，请参考手动集成方式 [手动集成文档](https://github.com/OpenInstall/openinstall-react-native/tree/master/documents)
+> **注意：** 如自动集成方式失败，无需惊慌，请参考手动集成方式 [手动集成文档](https://github.com/OpenInstall/openinstall-react-native-global/tree/master/documents)
 
 （1）使用自动集成脚本集成代码和部分配置
 ```
@@ -47,7 +47,7 @@ npm run openinstall e7iomw rc8tey
 ```
 （2）xcode配置（只对iOS）  
 
-在 iOS 工程中，如果要使用universal links(通用链接)的拉起功能，需要开启 Associated Domains功能，请到[苹果开发者网站](https://developer.apple.com)，选择Certificate, Identifiers & Profiles，选择相应的AppID，开启Associated Domains。注意：当AppID重新编辑过之后，需要更新相应的mobileprovision证书。(详细配置步骤请看[React-Native接入指南](https://www.openinstall.io/doc/RN_sdk.html))，如果已经开启过Associated Domains功能，进行下面操作：  
+在 iOS 工程中，如果要使用universal links(通用链接)的拉起功能，需要开启 Associated Domains功能，请到[苹果开发者网站](https://developer.apple.com)，选择Certificate, Identifiers & Profiles，选择相应的AppID，开启Associated Domains。注意：当AppID重新编辑过之后，需要更新相应的mobileprovision证书。如果已经开启过Associated Domains功能，进行下面操作：  
 - 在左侧导航器中点击您的项目
 - 选择 `Capabilities` 标签
 - 打开 `Associated Domains` 开关
@@ -66,7 +66,7 @@ import OpeninstallModule from 'openinstall-react-native-global'
 
 ### 1. 初始化
 
-确保用户同意《隐私政策》之后，再初始化 openinstall。参考 [应用合规指南](https://www.openinstall.io/doc/rules.html)
+确保用户同意《隐私政策》之后，再初始化 openinstall。参考 [应用合规指南](https://www.openinstallglobal.com/doc/rules.html)
 ``` js
 OpeninstallModule.init()
 ```
@@ -76,7 +76,7 @@ OpeninstallModule.init()
 
 ### 2. 快速安装和一键拉起
 
-通常在 `componentDidMount` 中注册唤醒回调监听
+通常在 `componentDidMount` 中或者使用`useEffect`注册唤醒回调监听
 ``` js
 componentDidMount() {
   //该方法用于监听app通过univeral link或scheme拉起后获取唤醒参数
@@ -142,12 +142,11 @@ OpeninstallModule.reportShare("shareCode001", "QQ", map => {
 
 ## 四、导出apk/ipa包并上传
 - 代码集成完毕后，需要导出安装包上传openinstall后台，openinstall会自动完成所有的应用配置工作。  
-![上传安装包](https://res.cdn.openinstall.io/doc/upload-ipa-jump.png)
 - 上传完成后即可开始在线模拟测试，体验完整的App安装/拉起流程；待测试无误后，再完善下载配置信息。
-![在线测试](https://res.cdn.openinstall.io/doc/js-test.png) 
+
 
 
 ## 如有疑问
 
-若您在集成或使用中有任何疑问或者困难，请 [咨询openinstall客服](https://www.openinstall.io/)。 
+若您在集成或使用中有任何疑问或者困难，请 [咨询openinstall客服](https://www.openinstallglobal.com/)。 
 

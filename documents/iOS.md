@@ -15,7 +15,7 @@
 ```
 ##### （2）universal links配置（iOS9以后推荐使用）
 
-对于iOS，为确保能正常跳转，AppID必须开启Associated Domains功能，请到[苹果开发者网站](https://developer.apple.com)，选择Certificate, Identifiers & Profiles，选择相应的AppID，开启Associated Domains。注意：当AppID重新编辑过之后，需要更新相应的mobileprovision证书。(图文配置步骤请看[iOS集成指南](https://www.openinstall.io/doc/ios_sdk.html))，如果已经开启过Associated Domains功能，进行下面操作：
+对于iOS，为确保能正常跳转，AppID必须开启Associated Domains功能，请到[苹果开发者网站](https://developer.apple.com)，选择Certificate, Identifiers & Profiles，选择相应的AppID，开启Associated Domains。注意：当AppID重新编辑过之后，需要更新相应的mobileprovision证书。如果已经开启过Associated Domains功能，进行下面操作：
 
 - 在左侧导航器中点击您的项目
 - 选择 `Capabilities` 标签
@@ -24,8 +24,8 @@
 
 ##### （3）scheme配置
 - `scheme` 的值请在openinstall控制台获取（openinstall应用控制台->iOS集成->iOS应用配置）
-在 `Info.plist` 文件中，在 `CFBundleURLTypes` 数组中添加应用对应的 `scheme`，或者在工程“TARGETS-Info-URL Types”里快速添加，图文配置请看[iOS集成指南](https://www.openinstallglobal.com/doc/zh/ios_sdk.html)  
-（scheme的值详细获取位置：openinstall应用控制台->iOS集成->iOS应用配置）
+在 `Info.plist` 文件中，在 `CFBundleURLTypes` 数组中添加应用对应的 `scheme`，或者在工程“TARGETS-Info-URL Types”里快速添加  
+（scheme的值详细获取位置：openinstall应用控制台->iOS集成->iOS应用配置）  
 
 ``` xml
  <key>CFBundleURLTypes</key>
@@ -54,8 +54,6 @@ $(SRCROOT)/../node_modules/openinstall-react-native-global/ios/RCTOpenInstall
 
 （1）AppDelegate.h 中添加如下代码，导入头文件
 ```
-#import <RCTOpenInstall/RCTOpenInstall.h>
-//通过cocoapod安装插件头文件路径不一样，如下
 #import <openinstall-react-native-global/RCTOpenInstall.h>
 ```
 
@@ -65,30 +63,32 @@ $(SRCROOT)/../node_modules/openinstall-react-native-global/ios/RCTOpenInstall
 
 
 （3）scheme相关代码  
-AppDelegate.m 里面添加如下代码：  
-**[RCTOpenInstall handLinkURL:url],由插件内部完成后续工作**  
+AppDelegate.mm 里面添加如下代码：  
 ```
 //iOS9以上，会优先走这个方法
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options{
  //openURL1
- [RCTOpenInstall handLinkURL:url];
+  AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+  RCTBridge *bridge = delegate.bridge;
+  RCTOpenInstall *module = [bridge moduleForClass:[RCTOpenInstall class]];
+  [module handLinkURL:url];
+  
+  //其它代码...
  return YES;
 }
-//适用目前所有iOS版本
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
- //openURL2
- [RCTOpenInstall handLinkURL:url];
- return YES;
-}
-```
 
 （4）universal link相关代码  
 AppDelegate.m 里面添加如下代码：  
-**[RCTOpenInstall continueUserActivity:userActivity]，由插件内部完成后续工作**  
 ```
-- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray * _Nullable))restorationHandler{
- //univeral link
- [RCTOpenInstall continueUserActivity:userActivity];
- return YES;
-}
+- (BOOL)application:(UIApplication *)application continueUserActivity:(nonnull NSUserActivity *)userActivity restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler{
+  //univeral link
+  //RCTBridge *bridge = [[RCTBridge alloc]initWithDelegate:self launchOptions:nil];
+  AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+  RCTBridge *bridge = delegate.bridge;
+  RCTOpenInstall *module = [bridge moduleForClass:[RCTOpenInstall class]];
+  [module continueUserActivity:userActivity];
+  
+  //其它代码...
+  return YES;
+ }
 ```

@@ -16,15 +16,18 @@
 #elif __has_include("React/RCTBridgeModule.h")
 #import "React/RCTBridgeModule.h"
 #endif
-
+//#elif __has_include("React/RCTEventEmitter.h")
+//#import <React/RCTEventEmitter.h>
+//#endif
 
 //#define OpenInstallWakeUpCallBackNotification @"OpenInstallWakeUpCallBackNotification"
 
 @interface RCTOpenInstall : NSObject<RCTBridgeModule,OpenInstallDelegate>
 
-+ (id)shareInstance;
 
-+ (void)handLinkURL:(NSURL *)url;
+//+ (id)shareInstance;
 
-+ (void)continueUserActivity:(NSUserActivity *)userActivity;
+- (void)handLinkURL:(NSURL *)url;
+
+- (void)continueUserActivity:(NSUserActivity *)userActivity;
 @end

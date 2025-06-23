@@ -1,6 +1,6 @@
 
 #import <Foundation/Foundation.h>
-#import "OpeninstallData.h"
+#import "OpenInstallData.h"
 
 /**
  * Conform to this protocol to allow getting data about wakeup attribution
